@@ -43,4 +43,29 @@ Output:
 
 ## Writing/Running Code
 
-You are to write your solution in the problem.py file within the solution function. To test your code afterwards you can run ```python test_1/test.py``` which will run a series of test to see if your solution is providing the correct answer
+You are to write your solution in the problem.py file within the solution function. To test your code afterwards you can run ```python test_1/test.py``` which will run a series of test to see if your solution is providing the correct answer returning something like the response below.
+
+```
+% python test_1/test.py
+
+CORRECT implementation for first example
+
+Answer key list: [1, 1, 2, 3, 4, 4]
+Your list: [1, 1, 2, 3, 4, 4]
+
+------------------------------------------------
+
+INCORRECT implementation for second example
+
+Answer key list: [-100, 10, 12, 16, 50, 100]
+Your list: [1, 1, 2, 3, 4, 4]
+
+------------------------------------------------
+
+INCORRECT implementation for third example
+
+Answer key list: [0]
+Your list: [1, 1, 2, 3, 4, 4]
+
+------------------------------------------------
+```
