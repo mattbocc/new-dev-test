@@ -1,5 +1,7 @@
 # Problem 1
 
+Note: This README file may be more clear to view in Github or by using a markdown preview plugin
+
 You are given the heads of two sorted linked lists list1 and list2. Merge the two lists into one sorted list. The list should be made by splicing together the nodes of the first two lists. Return the head of the merged linked list.
 
 ### Ex. 1
@@ -27,7 +29,7 @@ Output:
 ### Ex. 3
 Input:
 ```Python
-list1 = [], list2 = [0]
+list1 = None, list2 = [0]
 ```
 
 Output: 
@@ -35,6 +37,10 @@ Output:
 [0]
 ```
 
-## Visual Example
+### Visual Example
 
 ![test1_image](../imgs/merge.jpeg)
+
+## Writing/Running Code
+
+You are to write your solution in the problem.py file within the solution function. To test your code afterwards you can run ```python test_1/test.py``` which will run a series of test to see if your solution is providing the correct answer
