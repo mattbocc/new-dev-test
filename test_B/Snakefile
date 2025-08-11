@@ -1,5 +1,6 @@
 # Activate conda env, set minimal viable threads, export correct environments variables
 
+THREADS = 1
 
 rule all:
     input:
@@ -19,10 +20,10 @@ rule schema_check:
         r"""
         set -euo pipefail
         mkdir -p outputs logs
-        export RNA_PATH=""
-        export VARIANTS_PATH=""
-        export COLDATA_PATH=""
-        export OUT_OK=""
+        export RNA_PATH="{input.rna}"
+        export VARIANTS_PATH="{input.variants}"
+        export COLDATA_PATH="{input.coldata}"
+        export OUT_OK="{output.ok}"
         Rscript scripts/check_schema.R > {log} 2>&1
         """
 
@@ -42,8 +43,8 @@ rule generate_summary:
         set -euo pipefail
         mkdir -p outputs logs
         export RNA_PATH="{input.rna}"
-        export VARIANTS_PATH=""
-        export COLDATA_PATH=""
-        export OUT_PATH=""
+        export VARIANTS_PATH="{input.variants}"
+        export COLDATA_PATH="{input.coldata}"
+        export OUT_PATH="{output.summary}"
         Rscript scripts/run_etl.R > {log} 2>&1
         """

@@ -1,0 +1,7 @@
+metric,value
+clinical_samples,16
+expression_samples,10
+common_samples,10
+clinical_only,6
+expression_only,0
+clinical_missing_total,110

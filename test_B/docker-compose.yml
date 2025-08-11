@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  tcl38-pipeline:
+    build: .
+    container_name: tcl38-etl
+    volumes:
+      - ./outputs:/app/outputs
+    environment:
+      - SNAKEMAKE_CORES=1
+    command: mamba run -n tcl38-mini snakemake --cores 1 outputs/summary.csv
