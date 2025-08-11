@@ -22,6 +22,9 @@ if (ncol(rna) < 2) stop("rna.csv must have gene names (col 1) + >=1 sample colum
 sample_ids <- colnames(rna)[-1]
 
 # TODO-1: numeric-coerce sample columns and compute mean across genes for each sample
+rna_numeric <- sapply(rna[, -1], as.numeric)
+rna_means <- apply(rna_numeric, 2, mean, na.rm = TRUE)
+rna_df <- data.frame(sample_id = names(rna_means), rna_mean = rna_means, stringsAsFactors = FALSE)
 
 # ---- Variants: per-sample burden from wide matrix ----
 # Count non-empty, non-NA cells per sample column (exclude first 'gene' column)
@@ -30,6 +33,8 @@ var_samples <- colnames(vars)[-1]
 use_samples <- intersect(sample_ids, var_samples)
 
 # TODO-2: for each sample in use_samples, count non-empty strings (not NA, not "")
+variant_counts <- sapply(use_samples, function(x) sum(!is.na(vars[[x]]) & vars[[x]] != ""))
+burden_df <- data.frame(sample_id = names(variant_counts), variant_burden = variant_counts, stringsAsFactors = FALSE)
 
 # ---- colData join (uses 'sampleid'; group optional) ----
 if (!("sampleid" %in% names(coldata))) stop("colData.csv must include 'sampleid'")
