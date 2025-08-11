@@ -1,6 +1,6 @@
 __pycache__
 .snakemake
-outputs
+.DS_Store
 
 # Solved
 Snakefile_complete
