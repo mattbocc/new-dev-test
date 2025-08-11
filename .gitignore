@@ -1,2 +1,9 @@
-problem_solved.py
 __pycache__
+.snakemake
+outputs
+
+# Solved
+Snakefile_complete
+complete_scripts
+problem_solved.py
+problem_solved.r
